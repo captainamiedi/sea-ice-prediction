@@ -568,23 +568,6 @@ class CuboidSEVIRPLModule(pl.LightningModule):
     def get_sevir_datamodule(dataset_oc,
                              micro_batch_size: int = 1,
                              num_workers: int = 8):
-        # dm = SEVIRLightningDataModule(
-        #     seq_len=dataset_oc["seq_len"],
-        #     sample_mode=dataset_oc["sample_mode"],
-        #     stride=dataset_oc["stride"],
-        #     batch_size=micro_batch_size,
-        #     layout=dataset_oc["layout"],
-        #     output_type=np.float32,
-        #     preprocess=True,
-        #     rescale_method="01",
-        #     verbose=False,
-        #     # datamodule_only
-        #     dataset_name=dataset_oc["dataset_name"],
-        #     start_date=dataset_oc["start_date"],
-        #     train_val_split_date=dataset_oc["train_val_split_date"],
-        #     train_test_split_date=dataset_oc["train_test_split_date"],
-        #     end_date=dataset_oc["end_date"],
-        #     num_workers=num_workers,)
         dm = IceConcentrationDataModule(
             data_dir="/content/sea_ice_data",
             seq_len=25,          # Total sequence length (input + output)
